@@ -1,22 +1,24 @@
 import React from "react";
 import NavCss from "./NavigationBar.module.css";
+import Button from "./Button";
 
 const NavigationBar = (props) => {
-  const { onAuth, logoutHandler } = props;
+  const { onLogin, onRegister, logoutHandler, registerHandler } = props;
 
   return (
+    //로그인 상태에 따라 회원가입 or 로그아웃 버튼 출력
     <nav className={NavCss.nav}>
       <ul>
-        {onAuth && (
+        <li>{onRegister && <h1>Registering</h1>}</li>
+        <li>
+          {!onLogin && !onRegister && (
+            <Button onClick={registerHandler}>Register</Button>
+          )}
+        </li>
+        {onLogin && (
           <>
             <li>
-              <a href="/">Users</a>
-            </li>
-            <li>
-              <a href="/">Admin</a>
-            </li>
-            <li>
-              <a href="">Detail</a>
+              <a href="/">Logged In!</a>
             </li>
             <Button onClick={logoutHandler}>LogOut</Button>
           </>
