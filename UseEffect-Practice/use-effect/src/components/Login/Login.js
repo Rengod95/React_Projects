@@ -5,6 +5,7 @@ import Card from "../UI/Card";
 import Button from "../UI/Button";
 
 const Login = (props) => {
+  // 로그인 폼
   const {
     onRegister,
     loginSubmitHandler,
