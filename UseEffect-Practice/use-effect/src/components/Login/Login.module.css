@@ -15,6 +15,7 @@
 .control label,
 .control input {
     display: block;
+    z-index: 1;
 }
 
 .control label {

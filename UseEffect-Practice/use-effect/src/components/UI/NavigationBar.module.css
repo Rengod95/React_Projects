@@ -7,8 +7,9 @@
 }
 
 .nav li {
-    margin: 0;
-    margin-left: 2rem;
+    margin: 0 0 0 2rem;
+    font: inherit;
+    color: white;
 }
 
 .nav a {
@@ -30,6 +31,7 @@
     cursor: pointer;
     box-shadow: 0 2px 4px rgba(0, 0, 0, 0.26);
     border-radius: 20px;
+    margin-left: 10px;
 }
 
 .nav button:focus {
