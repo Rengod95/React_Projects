@@ -2,7 +2,7 @@ import React, { useRef, useState } from "react";
 import classes from "./Register.module.css";
 import Button from "../components/UI/Button";
 import { useContext } from "react";
-import { AuthContext } from "../asset/auth-context";
+import { AuthContext } from "../../stores/auth-context";
 
 const Register = () => {
   const authCtx = useContext(AuthContext);

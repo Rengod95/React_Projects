@@ -1,11 +1,11 @@
 import React from "react";
 import { BrowserRouter as Router, Routes, Route } from "react-router-dom";
-import Login from "./pages/Login";
-import Register from "./pages/Register";
-import Home from "./pages/Home";
-import Chat from "./pages/Chat";
+import Login from "./view/pages/Login";
+import Register from "./view/pages/Register";
+import Home from "./view/pages/Home";
+import Chat from "./view/pages/Chat";
 import "./App.css";
-import { AuthContextProvider } from "./asset/auth-context";
+import { AuthContextProvider } from "./stores/auth-context";
 
 const App = () => {
   // const isLoggedIn = undefined;

@@ -1,7 +1,7 @@
 import React, { useContext, useEffect, useReducer, useState } from "react";
 import Button from "../components/UI/Button";
 import classes from "./Login.module.css";
-import { AuthContext } from "../asset/auth-context";
+import { AuthContext } from "../../stores/auth-context";
 import { Link } from "react-router-dom";
 
 const defaultForm = { email: undefined, password: undefined };
@@ -34,8 +34,8 @@ const Login = () => {
         <form onSubmit={loginSubmitHandler}>
           <h1>SIGN IN</h1>
           <div className={classes.socialContainer}>
-            <a href="/"></a>
-            <a href="/"></a>
+            <a href="/client/src/view/pages"></a>
+            <a href="/client/src/view/pages"></a>
           </div>
           <input
             type="email"
@@ -47,7 +47,7 @@ const Login = () => {
             placeholder={"Password"}
             onChange={passwordInputHandler}
           />
-          <a href="/register">Forgot your password?</a>
+          <a href="/client/src/view/pages/Register">Forgot your password?</a>
           <Button type={"submit"}>SIGN IN</Button>
         </form>
       </div>
