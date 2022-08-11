@@ -1,31 +1,22 @@
-import React, { useContext, useEffect, useReducer, useState } from "react";
+import React, { useContext, useState, useEffect } from "react";
 import Button from "../components/UI/Button";
 import classes from "./Login.module.css";
 import { AuthContext } from "../../stores/auth-context";
 import { Link } from "react-router-dom";
-
-const defaultForm = { email: undefined, password: undefined };
+import GV from "../../stores/global_variables";
 
 const Login = () => {
   const authCtx = useContext(AuthContext);
-  const [formState, setFormState] = useState(defaultForm);
+  const [loginData, setLoginData] = useState(GV.getDefaultLoginForm());
 
-  useEffect(() => {
-    console.log(formState);
-  }, [formState]);
-
-  const emailInputHandler = (e) => {
-    setFormState({ email: e.target.value, password: formState.password });
-  };
-  const passwordInputHandler = (e) => {
-    setFormState({ email: formState.email, password: e.target.value });
-    console.log(formState);
+  const inputHandler = (e) => {
+    setLoginData({ ...loginData, [e.target.id]: e.target.value });
   };
 
   const loginSubmitHandler = (event) => {
     event.preventDefault();
-    authCtx.loginHandler(formState);
-    setFormState(defaultForm);
+    authCtx.authHandler(GV.getHeaders().login, loginData);
+    setLoginData(GV.getDefaultLoginForm);
   };
 
   return (
@@ -38,14 +29,16 @@ const Login = () => {
             <a href="/client/src/view/pages"></a>
           </div>
           <input
+            id={"email"}
             type="email"
             placeholder={"User Email"}
-            onChange={emailInputHandler}
+            onChange={inputHandler}
           />
           <input
+            id={"password"}
             type="password"
             placeholder={"Password"}
-            onChange={passwordInputHandler}
+            onChange={inputHandler}
           />
           <a href="/client/src/view/pages/Register">Forgot your password?</a>
           <Button type={"submit"}>SIGN IN</Button>

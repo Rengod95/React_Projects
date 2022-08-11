@@ -12,10 +12,16 @@ const GV = (function () {
     symbol_id: undefined,
   };
 
+  const defaultLoginForm = {
+    email: undefined,
+    password: undefined,
+  };
+
   return {
     getServerURL: () => URL, // URL 기본값
     getHeaders: () => HEADER,
     getDefaultUserForm: () => defaultUserForm,
+    getDefaultLoginForm: () => defaultLoginForm,
   };
 })();
 

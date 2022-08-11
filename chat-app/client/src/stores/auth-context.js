@@ -1,5 +1,4 @@
 import React, { createContext, useState } from "react";
-import axios from "axios";
 import GV from "./global_variables";
 import requester from "./requester";
 
@@ -7,9 +6,7 @@ const defaultContext = {
   // 컨텍스트 훅 사용을 위한 스탠다드 객체 탬플릿
   isLoggedIn: undefined,
   loginUserStatus: {},
-  loginHandler: (_loginUserStatus) => {},
-  logoutHandler: () => {},
-  registerHandler: (registerUserStatus) => {},
+  authHandler: (authData, header) => {},
 };
 
 const defaultUser = GV.getDefaultUserForm();

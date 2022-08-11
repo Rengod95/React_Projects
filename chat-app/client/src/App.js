@@ -8,8 +8,6 @@ import "./App.css";
 import { AuthContextProvider } from "./stores/auth-context";
 
 const App = () => {
-  // const isLoggedIn = undefined;
-
   return (
     <AuthContextProvider>
       <Router>
