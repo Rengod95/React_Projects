@@ -1,19 +1,21 @@
-import React, { useContext, useReducer, useRef, useState } from "react";
+import React, { useContext, useEffect, useReducer, useState } from "react";
 import Button from "../components/UI/Button";
 import classes from "./Login.module.css";
-import AuthContext from "../asset/auth-context";
+import { AuthContext } from "../asset/auth-context";
+import { Link } from "react-router-dom";
+
+const defaultForm = { email: undefined, password: undefined };
 
 const Login = () => {
   const authCtx = useContext(AuthContext);
-  const emailRef = useRef();
-  const [formState, setFormState] = useState({
-    email: undefined,
-    password: undefined,
-  });
+  const [formState, setFormState] = useState(defaultForm);
+
+  useEffect(() => {
+    console.log(formState);
+  }, [formState]);
 
   const emailInputHandler = (e) => {
     setFormState({ email: e.target.value, password: formState.password });
-    console.log(formState);
   };
   const passwordInputHandler = (e) => {
     setFormState({ email: formState.email, password: e.target.value });
@@ -22,7 +24,8 @@ const Login = () => {
 
   const loginSubmitHandler = (event) => {
     event.preventDefault();
-    authCtx.loginHandler();
+    authCtx.loginHandler(formState);
+    setFormState(defaultForm);
   };
 
   return (
@@ -35,7 +38,6 @@ const Login = () => {
             <a href="/"></a>
           </div>
           <input
-            ref={emailRef}
             type="email"
             placeholder={"User Email"}
             onChange={emailInputHandler}
@@ -46,7 +48,7 @@ const Login = () => {
             onChange={passwordInputHandler}
           />
           <a href="/register">Forgot your password?</a>
-          <Button>SIGN IN</Button>
+          <Button type={"submit"}>SIGN IN</Button>
         </form>
       </div>
       <div className={classes.overlayContainer}>
@@ -54,7 +56,9 @@ const Login = () => {
           <div className={`${classes.overlayPanel} ${classes.overlayRight}`}>
             <h1>SIGN UP</h1>
             <p>Sign up here if you don't have account.</p>
-            <Button>SIGN UP</Button>
+            <Link to={"/register"}>
+              <Button>SIGN UP</Button>
+            </Link>
           </div>
         </div>
       </div>

@@ -5,7 +5,7 @@ import Register from "./pages/Register";
 import Home from "./pages/Home";
 import Chat from "./pages/Chat";
 import "./App.css";
-import AuthContextProvider from "./asset/auth-context";
+import { AuthContextProvider } from "./asset/auth-context";
 
 const App = () => {
   // const isLoggedIn = undefined;

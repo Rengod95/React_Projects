@@ -16,7 +16,6 @@ const defaultUserStatus = {
   // json 기본 형식 (유저)
   name: undefined,
   nickname: undefined,
-  id: undefined,
   password: undefined,
   email: undefined,
   symbol_id: undefined,
@@ -25,19 +24,14 @@ const defaultUserStatus = {
 const registerForm = {
   name: undefined,
   nickname: undefined,
-  id: undefined,
   password: undefined,
   email: undefined,
   symbol_id: undefined,
 };
 
-const inputReducer = (latest, action) => {
-  return {};
-};
+export const AuthContext = createContext(defaultContext);
 
-const AuthContext = createContext(defaultContext);
-
-const AuthContextProvider = (props) => {
+export const AuthContextProvider = (props) => {
   const [isLoggedIn, setIsLoggedIn] = useState(false); // 로그인 상태
   const [loginUserStatus, setLoginUserStatus] = useState(defaultUserStatus); // 유저 정보에 대한 상태
 
@@ -68,7 +62,7 @@ const AuthContextProvider = (props) => {
       .post(URL, {
         headers: "LOGIN_VALIDITY",
         content: _loginUserStatus,
-        validity: undefined,
+        validity: 0,
       })
       .then((res) => {
         if (res.data.validity) {
@@ -94,5 +88,3 @@ const AuthContextProvider = (props) => {
     </AuthContext.Provider>
   );
 };
-
-export default AuthContextProvider;
