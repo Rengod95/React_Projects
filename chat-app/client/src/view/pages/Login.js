@@ -25,8 +25,8 @@ const Login = () => {
         <form onSubmit={loginSubmitHandler}>
           <h1>SIGN IN</h1>
           <div className={classes.socialContainer}>
-            <a href="/client/src/view/pages"></a>
-            <a href="/client/src/view/pages"></a>
+            <a href="/Users/in/Documents/CrashTalk/Crash-Talk/client/crash-talk/src/view/pages"></a>
+            <a href="/Users/in/Documents/CrashTalk/Crash-Talk/client/crash-talk/src/view/pages"></a>
           </div>
           <input
             id={"email"}
@@ -40,7 +40,7 @@ const Login = () => {
             placeholder={"Password"}
             onChange={inputHandler}
           />
-          <a href="/client/src/view/pages/Register">Forgot your password?</a>
+          <a href="/Users/in/Documents/CrashTalk/Crash-Talk/client/crash-talk/src/view/pages/Register">Forgot your password?</a>
           <Button type={"submit"}>SIGN IN</Button>
         </form>
       </div>
